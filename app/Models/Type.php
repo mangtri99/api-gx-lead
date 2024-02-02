@@ -10,6 +10,11 @@ class Type extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+    ];
+
     /**
      * Get all of the leads for the Type
      *

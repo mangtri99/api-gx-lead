@@ -14,6 +14,7 @@ class Media extends Model
     protected $fillable = [
         'name',
         'channel_id',
+        'description',
     ];
 
     protected $casts = [

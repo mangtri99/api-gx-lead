@@ -14,6 +14,7 @@ class Source extends Model
     protected $fillable = [
         'name',
         'media_id',
+        'description'
     ];
 
     protected $casts = [
