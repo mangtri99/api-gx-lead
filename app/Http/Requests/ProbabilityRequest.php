@@ -21,7 +21,7 @@ class ProbabilityRequest extends FormRequest
      */
     public function rules(): array
     {
-        $nameRule = 'required|string|min:3|max:255';
+        $nameRule = 'required|string|min:3|max:255|unique:probabilities,name';
 
         // when update data, ignore unique name
         if (request()->isMethod('PATCH')) {
