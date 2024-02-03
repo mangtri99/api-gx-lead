@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BranchRequest;
 use App\Http\Resources\ErrorResource;
 use App\Http\Resources\SuccessResource;
 use App\Repository\Branch\BranchRepository;
@@ -22,7 +23,7 @@ class BranchController extends Controller
         return SuccessResource::collection($this->branchRepository->getAll($request));
     }
 
-    public function store(Request $request)
+    public function store(BranchRequest $request)
     {
         try {
             $branch = $this->branchRepository->create($request);
@@ -37,7 +38,7 @@ class BranchController extends Controller
         return new SuccessResource($this->branchRepository->getById((int) $id));
     }
 
-    public function update(Request $request, $id)
+    public function update(BranchRequest $request, $id)
     {
         try {
             $branch = $this->branchRepository->update($request, (int) $id);
