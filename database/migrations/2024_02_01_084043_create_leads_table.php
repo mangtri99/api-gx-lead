@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('branch_id')->constrained();
-            $table->foreignId('status_id')->constrained();
-            $table->foreignId('probability_id')->constrained();
-            $table->foreignId('type_id')->constrained();
-            $table->foreignId('channel_id')->constrained();
-            $table->foreignId('media_id')->nullable()->constrained();
-            $table->foreignId('source_id')->nullable()->constrained();
+            $table->foreignId('branch_id')->constrained()->onDelete('cascade');
+            $table->foreignId('status_id')->constrained()->onDelete('cascade');
+            $table->foreignId('probability_id')->constrained()->onDelete('cascade');
+            $table->foreignId('type_id')->constrained()->onDelete('cascade');
+            $table->foreignId('channel_id')->constrained()->onDelete('cascade');
+            $table->foreignId('media_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('source_id')->nullable()->constrained()->onDelete('set null');
             $table->string('lead_number')->unique();
             $table->string('fullname');
             $table->string('email')->unique();
