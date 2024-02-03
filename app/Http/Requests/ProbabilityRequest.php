@@ -24,7 +24,7 @@ class ProbabilityRequest extends FormRequest
         $nameRule = 'required|string|min:3|max:255';
 
         // when update data, ignore unique name
-        if (request()->isMethod('PUT')) {
+        if (request()->isMethod('PATCH')) {
             $nameRule = 'required|string|min:3|max:255|unique:probabilities,name,' . $this->probability;
         }
 
