@@ -25,7 +25,7 @@ class StatusRequest extends FormRequest
 
         // when update data, ignore unique name
         if (request()->isMethod('PATCH')) {
-            $nameRule = 'required|string|min:3|max:255|unique:statuses,name,' . $this->source;
+            $nameRule = 'required|string|min:3|max:255|unique:statuses,name,' . $this->status;
         }
 
         return [
