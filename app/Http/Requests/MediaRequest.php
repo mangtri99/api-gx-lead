@@ -25,7 +25,7 @@ class MediaRequest extends FormRequest
 
         // when update data, ignore unique name
         if (request()->isMethod('PUT')) {
-            $nameRule = 'required|string|min:3|max:255|unique:media,name,' . $this->route('media')->id;
+            $nameRule = 'required|string|min:3|max:255|unique:media,name,' . $this->medium;
         }
 
         return [

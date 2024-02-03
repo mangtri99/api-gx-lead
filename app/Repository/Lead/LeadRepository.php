@@ -247,7 +247,6 @@ class LeadRepository implements CrudInterface
     public function update(Request $request, int $id)
     {
         $lead = Lead::findOrfail($id)->update($request->all());
-
         return $lead;
     }
 

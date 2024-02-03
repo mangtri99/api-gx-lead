@@ -46,8 +46,8 @@ class LeadController extends Controller
     public function update(LeadRequest $request, $id)
     {
         try {
-            $lead = $this->leadRepository->update($request, (int) $id);
-            return new SuccessResource($lead);
+            $this->leadRepository->update($request, (int) $id);
+            return new SuccessResource([]);
         } catch (Exception $e) {
             return response()->json(new ErrorResource($e), 500);
         }

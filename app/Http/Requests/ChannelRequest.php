@@ -25,7 +25,7 @@ class ChannelRequest extends FormRequest
 
         // when update data, ignore unique name
         if (request()->isMethod('PUT')) {
-            $nameRule = 'required|string|min:3|max:255|unique:channels,name,' . $this->route('channel')->id;
+            $nameRule = 'required|string|min:3|max:255|unique:channels,name,' . $this->channel;
         }
 
         return [

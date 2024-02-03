@@ -25,7 +25,7 @@ class TypeRequest extends FormRequest
 
         // when update data, ignore unique name
         if (request()->isMethod('PUT')) {
-            $nameRule = 'required|string|min:3|max:255|unique:types,name,' . $this->route('type')->id;
+            $nameRule = 'required|string|min:3|max:255|unique:types,name,' . $this->type;
         }
         return [
             'name' => $nameRule,

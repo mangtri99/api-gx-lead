@@ -25,9 +25,9 @@ class LeadRequest extends FormRequest
         $phoneNumberRule = 'required|numeric|unique:leads,phone_number';
 
         // when update data, ignore unique email, phone_number, lead_number
-        if (request()->isMethod('PUT')) {
-            $emailRule = 'required|email|unique:leads,email,' . $this->route('lead')->id;
-            $phoneNumberRule = 'required|numeric|unique:leads,phone_number,' . $this->route('lead')->id;
+        if (request()->isMethod('PATCH')) {
+            $emailRule = 'required|email|unique:leads,email,' . $this->lead;
+            $phoneNumberRule = 'required|numeric|unique:leads,phone_number,' . $this->lead;
         }
 
         return [
