@@ -235,7 +235,12 @@ class LeadRepository implements CrudInterface
 
     public function create(Request $request)
     {
-        $lead = Lead::create($request->all());
+        $data = $request->all();
+        // 2 Capital Letters + Unix Timestamp
+        $createLeadNumber = strtoupper(substr($data['fullname'], 0, 2)) . time();
+        // apend lead number to data
+        $data['lead_number'] = $createLeadNumber;
+        $lead = Lead::create($data);
         return $lead;
     }
 

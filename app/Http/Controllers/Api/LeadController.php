@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LeadRequest;
 use App\Http\Resources\ErrorResource;
 use App\Http\Resources\SuccessResource;
 use App\Repository\Lead\LeadRepository;
@@ -27,7 +28,7 @@ class LeadController extends Controller
         return SuccessResource::collection($this->leadRepository->charts($request));
     }
 
-    public function store(Request $request)
+    public function store(LeadRequest $request)
     {
         try {
             $lead = $this->leadRepository->create($request);
@@ -42,7 +43,7 @@ class LeadController extends Controller
         return new SuccessResource($this->leadRepository->getById((int) $id));
     }
 
-    public function update(Request $request, $id)
+    public function update(LeadRequest $request, $id)
     {
         try {
             $lead = $this->leadRepository->update($request, (int) $id);
