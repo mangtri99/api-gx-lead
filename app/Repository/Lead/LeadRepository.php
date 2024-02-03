@@ -213,7 +213,6 @@ class LeadRepository implements CrudInterface
             'medias' => $medias,
             'sources' => $sources,
             'leads' => [
-                'data' => $leads,
                 'total' => $leadsCount,
             ]
 
