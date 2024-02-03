@@ -10,6 +10,10 @@ class Branch extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+    ];
+
     public function leads(): HasMany
     {
         return $this->hasMany(Lead::class);
