@@ -105,7 +105,6 @@ class LeadRepository implements CrudInterface
             ];
         });
 
-
         // Group by branch_id and map to get name and total
         $branches = $leads->groupBy('branch_id')->map(function ($item, $key) {
             return [
@@ -121,6 +120,10 @@ class LeadRepository implements CrudInterface
                 'total' => $total ? $total['total'] : 0,
             ];
         });
+        $branches = [
+            'name' =>  $branches->pluck('name'),
+            'total' => $branches->pluck('total')
+        ];
 
         // Group by probability_id and map to get name and total
         $probabilities = $leads->groupBy('probability_id')->map(function ($item, $key) {
@@ -137,6 +140,10 @@ class LeadRepository implements CrudInterface
                 'total' => $total ? $total['total'] : 0,
             ];
         });
+        $probabilities = [
+            'name' =>  $probabilities->pluck('name'),
+            'total' => $probabilities->pluck('total')
+        ];
 
         // Group by type_id and map to get name and total
         $types = $leads->groupBy('type_id')->map(function ($item, $key) {
@@ -153,6 +160,10 @@ class LeadRepository implements CrudInterface
                 'total' => $total ? $total['total'] : 0,
             ];
         });
+        $types = [
+            'name' =>  $types->pluck('name'),
+            'total' => $types->pluck('total')
+        ];
 
         // Group by channel_id and map to get name and total
         $channels = $leads->groupBy('channel_id')->map(function ($item, $key) {
@@ -169,6 +180,10 @@ class LeadRepository implements CrudInterface
                 'total' => $total ? $total['total'] : 0,
             ];
         });
+        $channels = [
+            'name' =>  $channels->pluck('name'),
+            'total' => $channels->pluck('total')
+        ];
 
         // Group by media_id and map to get name and total
         $medias = $leads->groupBy('media_id')->map(function ($item, $key) {
@@ -185,6 +200,10 @@ class LeadRepository implements CrudInterface
                 'total' => $total ? $total['total'] : 0,
             ];
         });
+        $medias = [
+            'name' =>  $medias->pluck('name'),
+            'total' => $medias->pluck('total')
+        ];
 
         // Group by source_id and map to get name and total
         $sources = $leads->groupBy('source_id')->map(function ($item, $key) {
@@ -203,6 +222,10 @@ class LeadRepository implements CrudInterface
                 'total' => $total ? $total['total'] : 0,
             ];
         });
+        $sources = [
+            'name' =>  $sources->pluck('name'),
+            'total' => $sources->pluck('total')
+        ];
 
         return [
             'statuses' => $statuses,
