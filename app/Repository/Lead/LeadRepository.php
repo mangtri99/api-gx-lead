@@ -52,6 +52,7 @@ class LeadRepository implements CrudInterface
                 // default sort by created_at in desc order
                 $query->orderBy('created_at', 'desc');
             })->with([
+                'user',
                 'branch',
                 'status',
                 'probability',
@@ -262,6 +263,7 @@ class LeadRepository implements CrudInterface
         $createLeadNumber = strtoupper(substr($data['fullname'], 0, 2)) . time();
         // apend lead number to data
         $data['lead_number'] = $createLeadNumber;
+        $data['user_id'] = auth()->user()->id;
         $lead = Lead::create($data);
         return $lead;
     }

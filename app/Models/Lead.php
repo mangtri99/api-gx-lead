@@ -11,6 +11,7 @@ class Lead extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'source_id',
         'type_id',
         'status_id',
@@ -30,6 +31,7 @@ class Lead extends Model
     ];
 
     protected $casts = [
+        'user_id' => 'integer',
         'branch_id' => 'integer',
         'source_id' => 'integer',
         'type_id' => 'integer',
@@ -107,5 +109,15 @@ class Lead extends Model
     public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class);
+    }
+
+    /**
+     * Get the user that owns the Lead
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

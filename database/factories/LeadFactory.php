@@ -21,6 +21,7 @@ class LeadFactory extends Factory
         $randomProbability = \App\Models\Probability::inRandomOrder()->first();
         $randomType = \App\Models\Type::inRandomOrder()->first();
         $randomChannel = \App\Models\Channel::inRandomOrder()->first();
+        $randomUser = \App\Models\User::inRandomOrder()->first();
 
         // get random media by channel
         $randomMedia = \App\Models\Media::where('channel_id', $randomChannel->id)->inRandomOrder()->first();
@@ -32,6 +33,7 @@ class LeadFactory extends Factory
         $leadNumber = $this->faker->unique()->regexify('[A-Z]{2}[0-9]{8}');
 
         return [
+            'user_id' => $randomUser->id,
             'branch_id' => $randomBranch->id,
             'status_id' => $randomStatus->id,
             'probability_id' => $randomProbability->id,
