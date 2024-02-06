@@ -28,6 +28,7 @@ class Lead extends Model
         'longitude',
         'company_name',
         'notes',
+        'is_coverage'
     ];
 
     protected $casts = [

@@ -246,6 +246,7 @@ class LeadRepository implements CrudInterface
     public function getById(int $id)
     {
         return Lead::with([
+            'user',
             'branch',
             'status',
             'probability',

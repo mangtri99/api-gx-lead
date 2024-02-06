@@ -50,6 +50,7 @@ class LeadFactory extends Factory
             'longitude' => $this->faker->longitude,
             'company_name' => $this->faker->company,
             'notes' => $this->faker->text,
+            'is_coverage' => rand(0, 1),
         ];
     }
 }
