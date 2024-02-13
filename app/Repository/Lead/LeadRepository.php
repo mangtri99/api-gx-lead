@@ -45,6 +45,26 @@ class LeadRepository implements CrudInterface
             ->when($request->branch, function ($query) use ($request) {
                 $query->where('branch_id', $request->branch);
             })
+            // filter by type
+            ->when($request->type, function ($query) use ($request) {
+                $query->where('type_id', $request->type);
+            })
+            // filter by probability
+            ->when($request->probability, function ($query) use ($request) {
+                $query->where('probability_id', $request->probability);
+            })
+            // filter by channel
+            ->when($request->channel, function ($query) use ($request) {
+                $query->where('channel_id', $request->channel);
+            })
+            // filter by media
+            ->when($request->media, function ($query) use ($request) {
+                $query->where('media_id', $request->media);
+            })
+            // filter by source
+            ->when($request->source, function ($query) use ($request) {
+                $query->where('source_id', $request->source);
+            })
             // Handle sort and order query params
             ->when($request->sort, function ($query) use ($request) {
                 $query->orderBy($request->sort, $request->order ?? 'asc'); // default order is asc
