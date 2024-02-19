@@ -34,6 +34,7 @@ class LeadFactory extends Factory
 
         return [
             'user_id' => $randomUser->id,
+            'assigne_id' => $randomUser->id,
             'branch_id' => $randomBranch->id,
             'status_id' => $randomStatus->id,
             'probability_id' => $randomProbability->id,

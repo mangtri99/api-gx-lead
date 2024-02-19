@@ -73,6 +73,7 @@ class LeadRepository implements CrudInterface
                 $query->orderBy('created_at', 'desc');
             })->with([
                 'user',
+                'assigne',
                 'branch',
                 'status',
                 'probability',
@@ -285,6 +286,7 @@ class LeadRepository implements CrudInterface
         // apend lead number to data
         $data['lead_number'] = $createLeadNumber;
         $data['user_id'] = auth()->user()->id;
+        $data['assigne_id'] = auth()->user()->id;
         $lead = Lead::create($data);
         return $lead;
     }

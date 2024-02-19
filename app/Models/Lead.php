@@ -12,6 +12,7 @@ class Lead extends Model
 
     protected $fillable = [
         'user_id',
+        'assigne_id',
         'source_id',
         'type_id',
         'status_id',
@@ -33,6 +34,7 @@ class Lead extends Model
 
     protected $casts = [
         'user_id' => 'integer',
+        'assigne_id' => 'integer',
         'branch_id' => 'integer',
         'source_id' => 'integer',
         'type_id' => 'integer',
@@ -120,5 +122,15 @@ class Lead extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the assigne that owns the Lead
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function assigne(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'assigne_id');
     }
 }

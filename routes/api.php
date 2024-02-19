@@ -28,6 +28,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResource("source", \App\Http\Controllers\Api\SourceController::class);
     Route::apiResource("type", \App\Http\Controllers\Api\TypeController::class);
     Route::apiResource("status", \App\Http\Controllers\Api\StatusController::class);
+    Route::get("user", [\App\Http\Controllers\Api\UserController::class, 'index']);
     Route::apiResource("lead", \App\Http\Controllers\Api\LeadController::class);
     Route::get('charts/lead', [\App\Http\Controllers\Api\LeadController::class, 'charts'])->name('charts.lead');
 });
